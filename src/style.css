@@ -1,3 +1,15 @@
 body {
     color: blue;
 }
+
+form {
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 25%;
+    justify-items: left;
+    justify-content: center;
+}
+
+label {
+    margin-right: 10px;
+}
