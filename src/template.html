@@ -7,17 +7,38 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
-    <form action="">
-        <label for="email">Email Address</label>
-        <input type="email" id="email">
-        <label for="country">Country</label>
-        <input type="text" id="country">
-        <label for="zipCode">Zip Code</label>
-        <input type="number" id="zipCode" pattern="(^\d{5}$)|(^\d{9}$)|(^\d{5}-\d{4}$)">
-        <label for="password">Password</label>
-        <input type="password" id="password" pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$">
-        <label for="confirm">Confirm Password</label>
-        <input type="password" id="confirm">
+    <form action="" novalidate>
+        <label for="email">
+            <span>Email Address:</span>
+            <input type="email" name="email" id="email">
+            <span class="error" aria-live="polite"></span>
+        </label>
+        <label for="country">
+            <span>Country:</span>
+            <select id="country" name="country" required>
+                <option>select country</option>
+                <option value="CA">Canada</option>
+                <option value="MX">Mexico</option>
+                <option value="GB">United Kingdom</option>
+                <option value="US">United States</option>
+            </select>
+            <span class="error" aria-live="polite"></span>
+        </label>
+        <label for="zipCode">
+            <span>Zip Code:</span>
+            <input type="tel" id="zipCode" name="zipCode" pattern="[0-9]{5}" required>
+            <span class="error" aria-live="polite"></span>
+        </label>
+        <label for="password">
+            <span>Password:</span>
+            <input type="password" id="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$" required>
+            <span class="error" aria-live="polite"></span>
+        </label>
+        <label for="confirm">
+            <span>Confirm Password:</span>
+            <input type="password" id="confirm" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$" required>
+            <span class="error" aria-live="polite"></span>
+        </label>
         <button>Submit</button>
     </form>
 </body>
